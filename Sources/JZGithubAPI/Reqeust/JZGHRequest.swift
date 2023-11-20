@@ -23,9 +23,9 @@ import Alamofire
 //"expires_in":28800,"refresh_token":"ghr_nguEBauP2mewcPCevOttH057ZZGNvTeXEFIhVNJTUXuha7uiT6lEBD2tEoa9LuNClOqHVy3BznX6","refresh_token_expires_in":15724800,"token_type":"bearer","scope":""}
 
 
-class JZGHRequest {
+public class JZGHRequest {
 
-    static func request<Value: Decodable>(_ urlStr: String, 
+    static public func request<Value: Decodable>(_ urlStr: String, 
                                           method: HTTPMethod = .get,
                                           params: [String : Any]? = nil,
                                           header: [String : String]? = nil,
@@ -60,7 +60,7 @@ class JZGHRequest {
         }
     }
     
-    static func requestWithError(_ error: AFError) {
+    static public  func requestWithError(_ error: AFError) {
         // 首先输出error
         debugPrint(error)
         // 是否处理error，重新登录等
@@ -71,7 +71,7 @@ class JZGHRequest {
     /// - Parameters:
     ///   - codeValue: 授权页面成功后，返回URL中拼接的code
     ///   - complete: 结果回调
-    static func getAccessToken(_ codeValue: String, requestSuccess: @escaping (JZGHAccessToken) -> ()) {
+    static public func getAccessToken(_ codeValue: String, requestSuccess: @escaping (JZGHAccessToken) -> ()) {
         Task {
             var params: [String : Any] = [:]
             params["client_id"] = JZGHManager.CLIENT_ID
@@ -84,7 +84,7 @@ class JZGHRequest {
         }
     }
     
-    static func getUserInfo(_ accessToken: String, requestSuccess: @escaping (JZGHUserInfo) -> ()) {
+    static public func getUserInfo(_ accessToken: String, requestSuccess: @escaping (JZGHUserInfo) -> ()) {
         Task {
             let authValue = String(format: "Bearer %@", accessToken)
             let header: [String : String] = ["Accept" : "application/json", "Content-Type" : "application/json", "Authorization" : authValue]

@@ -8,11 +8,6 @@
 import SwiftUI
 import WebKit
 
-class JZGHAuthModel: ObservableObject {
-    @Published var urlString: String = ""
-    @Published var isShowLoginView: Bool = false
-}
-
 #if os(macOS)
 public typealias JZViewRepresentable = NSViewRepresentable
 #else

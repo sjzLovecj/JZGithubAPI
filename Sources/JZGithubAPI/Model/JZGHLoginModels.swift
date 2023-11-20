@@ -7,50 +7,50 @@
 
 import Foundation
 
-struct JZGHBaseModel: Decodable {}
+public struct JZGHBaseModel: Decodable {}
 
 // 获取Token接口的的Model
-struct JZGHAccessToken: Decodable {
-    var access_token: String?
-    var expires_in: Int?
-    var refresh_token: String?
-    var refresh_token_expires_in: Int64?
-    var token_type: String?
-    var scope: String?
+public struct JZGHAccessToken: Decodable {
+    public var access_token: String?
+    public var expires_in: Int?
+    public var refresh_token: String?
+    public var refresh_token_expires_in: Int64?
+    public var token_type: String?
+    public var scope: String?
 }
 
 // 获取用户信息接口的Model
-struct JZGHUserInfo: Decodable {
-    var login: String?
-    var id: Int?
-    var node_id: String?
-    var avatar_url: String?
-    var gravatar_id: String?
-    var url: String?
-    var html_url: String?
-    var followers_url: String?
-    var following_url: String?
-    var gists_url: String?
-    var starred_url: String?
-    var subscriptions_url: String?
-    var organizations_url: String?
-    var repos_url: String?
-    var events_url: String?
-    var received_events_url: String?
-    var type: String?
-    var site_admin: Bool?
-    var name: String?
-    var company: String?
-    var blog: String?
-    var location: String?
-    var email: String?
-    var hireable: String?
-    var bio: String?
-    var twitter_username: String?
-    var public_repos: Int?
-    var public_gists: Int?
-    var followers: Int?
-    var following: Int?
-    var created_at: String?
-    var updated_at: String?
+public struct JZGHUserInfo: Decodable {
+    public var login: String?
+    public var id: Int?
+    public var node_id: String?
+    public var avatar_url: String?
+    public var gravatar_id: String?
+    public var url: String?
+    public var html_url: String?
+    public var followers_url: String?
+    public var following_url: String?
+    public var gists_url: String?
+    public var starred_url: String?
+    public var subscriptions_url: String?
+    public var organizations_url: String?
+    public var repos_url: String?
+    public var events_url: String?
+    public var received_events_url: String?
+    public var type: String?
+    public var site_admin: Bool?
+    public var name: String?
+    public var company: String?
+    public var blog: String?
+    public var location: String?
+    public var email: String?
+    public var hireable: String?
+    public var bio: String?
+    public var twitter_username: String?
+    public var public_repos: Int?
+    public var public_gists: Int?
+    public var followers: Int?
+    public var following: Int?
+    public var created_at: String?
+    public var updated_at: String?
 }
