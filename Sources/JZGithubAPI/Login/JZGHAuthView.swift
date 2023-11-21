@@ -15,7 +15,8 @@ public typealias JZViewRepresentable = UIViewRepresentable
 #endif
 
 struct JZGHAuthView: JZViewRepresentable {
-    @EnvironmentObject var authModel: JZGHLoginModel
+    @Binding var isPresented: Bool
+    @EnvironmentObject var loginModel: JZGHLoginModel
     
 #if os(macOS)
     func makeNSView(context: Context) -> some WKWebView {
@@ -35,8 +36,8 @@ struct JZGHAuthView: JZViewRepresentable {
     }
     
     func updateNSView(_ nsView: NSViewType, context: Context) {
-        if !authModel.urlString.isEmpty {
-            if let authURL = URL(string: authModel.urlString) {
+        if !loginModel.urlString.isEmpty {
+            if let authURL = URL(string: loginModel.urlString) {
                 let authRequest = URLRequest(url: authURL)
                 nsView.load(authRequest)
             }
@@ -69,14 +70,14 @@ struct JZGHAuthView: JZViewRepresentable {
     }
 #endif
     func makeCoordinator() -> Coordinator {
-        return Coordinator(authModel: authModel)
+        return Coordinator(isPresented: $isPresented)
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {
-        @ObservedObject var authModel: JZGHLoginModel
+        @Binding var isPresented: Bool
         
-        init(authModel: JZGHLoginModel) {
-            self.authModel = authModel
+        init(isPresented: Binding<Bool>) {
+            self._isPresented = isPresented
         }
         
         // 拦截回调的URL
@@ -101,7 +102,7 @@ struct JZGHAuthView: JZViewRepresentable {
                     // 存储Token
                     if let access_token = tokenModel.access_token {
                         JZGHManager.shared.ACCESS_TOKEN = access_token
-                        authModel.isShowLoginView = false
+                        isPresented = false
                     }
                 }
             }

@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-// client secret: 1a3a9197e5ab3cac835d86c4d01a86092a192f81
-// client id:  Iv1.31d805f688c6ce7b
-
 public struct JZGHManager {
     static public let shared: JZGHManager = JZGHManager()
     @AppStorage("SHOWLOGINView") public var isShowLoginView: Bool = true
