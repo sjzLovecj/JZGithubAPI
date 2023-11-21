@@ -18,8 +18,8 @@ public struct JZGHManager {
     @AppStorage("ACCESS_TOKEN") public var ACCESS_TOKEN: String = ""
         
     // 先给个回调值
-    static public var CLIENT_ID: String = "Iv1.31d805f688c6ce7b"
-    static public  var CLIENT_SECRET: String = "1a3a9197e5ab3cac835d86c4d01a86092a192f81"
+    static public var CLIENT_ID: String = ""
+    static public  var CLIENT_SECRET: String = ""
 
     // GETHUB 授权接口
     static public var GITHUB_AUTHURL: String = "https://github.com/login/oauth/authorize"

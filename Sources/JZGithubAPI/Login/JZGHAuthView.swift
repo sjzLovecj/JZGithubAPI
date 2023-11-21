@@ -15,7 +15,7 @@ public typealias JZViewRepresentable = UIViewRepresentable
 #endif
 
 struct JZGHAuthView: JZViewRepresentable {
-    @EnvironmentObject var authModel: JZGHAuthModel
+    @EnvironmentObject var authModel: JZGHLoginModel
     
 #if os(macOS)
     func makeNSView(context: Context) -> some WKWebView {
@@ -73,9 +73,9 @@ struct JZGHAuthView: JZViewRepresentable {
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {
-        @ObservedObject var authModel: JZGHAuthModel
+        @ObservedObject var authModel: JZGHLoginModel
         
-        init(authModel: JZGHAuthModel) {
+        init(authModel: JZGHLoginModel) {
             self.authModel = authModel
         }
         
